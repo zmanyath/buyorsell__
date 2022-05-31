@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  db:
+    container_name: wtc-classifieds
+    build: ./backend/database
+    image: mssql:dev
+    ports:
+      - "1433:1433"
+    volumes:
+      - ~/apps/mssql/data:/var/lib/mssqlql/data
+    environment:
+      SA_PASSWORD: Xanny1305
+      ACCEPT_EULA: "Y"
