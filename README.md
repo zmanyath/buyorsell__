@@ -21,4 +21,4 @@
     - 
     - Go to the frontend folder and into the BuyOrSell_ folder
     - run` ng serve` 
-    - go to [text](http://localhost:4200/) in your browser
+    - go to http://localhost:4200 in your browser
