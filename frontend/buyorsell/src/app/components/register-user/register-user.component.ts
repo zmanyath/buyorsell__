@@ -29,6 +29,7 @@ export class RegisterUserComponent implements OnInit {
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(8),
       Validators.maxLength(12)]],
       createdAt: [Date.now()]
@@ -42,7 +43,7 @@ export class RegisterUserComponent implements OnInit {
     .pipe(first())
     .subscribe({
       next: () => {
-        this.router.navigate(['../question'], { relativeTo: this.route });
+        this.router.navigate(['../home'], { relativeTo: this.route });
       } 
   });
 }
