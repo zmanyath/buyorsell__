@@ -39,6 +39,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 
 @CrossOrigin(origins = "http://localhost:4200")
+
 @RestController
 @RequestMapping(value = "/user")
 public class UserController {
@@ -66,8 +67,6 @@ public class UserController {
     @Autowired
     PaymentDetailsService paymentDetailsService;
 
-    
-
     @Autowired
     UserRepo userRepo;
 
@@ -88,11 +87,15 @@ public class UserController {
     }
 
     @CrossOrigin
-	@PostMapping(value = "/register")
+    @PostMapping(value = "/register")
     @ResponseBody
-	public ResponseEntity<User> createUser(@RequestBody User u) throws UserException {
-        userService.registerUser(u);		
-		return new ResponseEntity<User>(userService.registerUser(u), HttpStatus.CREATED);
+    public ResponseEntity<User> createUser(@RequestBody User u) {
+        try {
+            User createdUser = userService.registerUser(u);
+            return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+        } catch (UserException e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PostMapping(value = "/login")
@@ -104,12 +107,15 @@ public class UserController {
     }
     
     //address mappings
-    @PostMapping(value = {"/{id}/save-address/", "/save-address"})
-    public Location saveAddress(@PathVariable("id") final int id, @RequestParam String address_line1, @RequestParam String address_line2, @RequestParam String city, @RequestParam long postal_code, @RequestParam String country) {
-        Location address = new Location(address_line1, address_line2, city, postal_code, country);
-        addressService.saveAddress(address); 
-        return address;
+    @CrossOrigin
+    @PostMapping(value = {"/{id}/save-address"})
+    @ResponseBody
+    public ResponseEntity<Location> newAddress(@PathVariable("id") final int id,
+        @RequestBody Location l) {
+        Location addedAddress = addressService.saveAddress(id, l);
+        return new ResponseEntity<>(addedAddress, HttpStatus.CREATED);
     }
+
 
     @GetMapping(value ="/{id}/saved-addresses", produces = "application/json")
     public ResponseEntity<List<Location>> getLocations(@PathVariable("id") final int id) {

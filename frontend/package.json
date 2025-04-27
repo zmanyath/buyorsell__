@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "angularx-social-login": "^4.1.0",
-    	
-  "start": "ng serve --proxy-config proxy.conf.json"
-  }
-  
-}
-

@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wethinkcode.buyorsell.user.User;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -23,10 +23,15 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class Location {
 
     private int id;
+    @JsonProperty("address_line1")
     private String address_line1;
+    @JsonProperty("address_line2")
     private String address_line2;
+    @JsonProperty("city")
     private String city;
+    @JsonProperty("postal_code")
     private long postal_code;
+    @JsonProperty("country")
     private String country;
 
     public Location() {

@@ -1,1 +1,13 @@
-<p>user-profile works!</p>
+<mat-card class="profile-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>User Details</mat-card-title>
+    <button mat-button color="primary" class="update-btn" (click)="onUpdate()">Update</button>
+    <button mat-button color="primary" class="update-btn" (click)="onDelete()">Delete User</button>
+  </mat-card-header>
+  <mat-card-content>
+    <p><strong>Name:</strong> {{ currentUser?.firstName}}</p>
+    <p><strong>Last Name:</strong> {{ currentUser?.lastName}}</p>
+    <p><strong>Email:</strong> {{ currentUser?.email }}</p>
+    <p><strong>Phone:</strong> 0{{ currentUser?.phoneNumber }}</p>
+  </mat-card-content>
+</mat-card>

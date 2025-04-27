@@ -12,8 +12,19 @@ public class LocationService {
     @Autowired
     private LocationRepo locationRepo;
 
-    public Location saveAddress(Location location) {
-        return locationRepo.save(location);
+    public Location saveAddress(int id,Location location) {
+        if (location.getAddressLine1() == null || location.getAddressLine1().isEmpty()) {
+            throw new IllegalArgumentException("Address Line 1 cannot be null or empty");
+        }
+        Location newAddress = new Location(
+            location.getAddressLine1(),
+            location.getAddressLine2(),
+            location.getCountry(),
+            location.getPostalCode(),
+            location.getCity()
+        );
+        System.out.println(newAddress);
+        return locationRepo.save(newAddress);
     }
 
     public List<Location> getLocations() {

@@ -1,6 +1,7 @@
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,13 +16,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { LoginUserComponent } from './components/login-user/login-user.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserProfileComponent, UpdateDialog } from './components/user-profile/user-profile.component';
 import { UserService } from './service/user.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './components/home/home.component';
 import { QuestionComponent } from './components/question/question.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -31,7 +36,8 @@ import { QuestionComponent } from './components/question/question.component';
     RegisterUserComponent,
     UserProfileComponent,
     HomeComponent,
-    QuestionComponent
+    QuestionComponent,
+    UpdateDialog
   ],
   imports: [
     RouterModule,
@@ -42,7 +48,11 @@ import { QuestionComponent } from './components/question/question.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
   ],
   providers: [ UserService,
     {
@@ -59,6 +69,7 @@ import { QuestionComponent } from './components/question/question.component';
     },
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents: [UpdateDialog],
 })
 export class AppModule { }

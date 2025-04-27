@@ -1,42 +1,43 @@
-<div class="main-wrapper" id="image" fxLayout="row" fxLayoutAlign="center center">
+<div class="container">
+  <div class="left-panel">
+    <img src="../../../assets/wolf_.jpg" alt="Background" class="background-image">
+    <div class="overlay-text">
+      <h2>Buy used gadgets at a cheaper price</h2>
+    </div>
+  </div>
 
-  <mat-card class="box">
-
-    <mat-card-header>
-      <mat-card-title>Register</mat-card-title>
-    </mat-card-header>
+  <div class="right-panel">
+    <h1>Create an account</h1>
+    <p>Already have an account? <a href="/login">Log in</a></p>
 
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <mat-card-content>
-        <div>
-          <mat-form-field>
-            <input matInput type="text" formControlName="firstName" placeholder="First Name" class="form-control" id="first_name">
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field>
-            <input matInput type="text" formControlName="lastName"  placeholder="Last Name" class="form-control" id="last_name">
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field>
-            <input matInput type="email" formControlName="email" placeholder="Email" class="form-control" id="email">
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field>
-            <input matInput type="number" formControlName="phoneNumber" placeholder="Phone Number" class="form-control" id="number">
-          </mat-form-field>
-        </div>
-        <div>
-          <mat-form-field>
-            <input matInput type="password" placeholder="Password" formControlName="password"  class="form-control" id="password">
-          </mat-form-field>
-        </div>
-        </mat-card-content>        
-        <button mat-raised-button color="primary" type="submit">Register User</button>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" placeholder="First Name">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" placeholder="Last Name">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" placeholder="Email">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" placeholder="Password">
+      </mat-form-field>
+
+      <!-- <mat-checkbox formControlName="terms">
+        I agree to the <a href="#">Terms & Conditions</a>
+      </mat-checkbox> -->
+
+      <button mat-raised-button color="primary" type="submit" class="create-account-button">
+        Create Account
+      </button>
     </form>
-
-  </mat-card>
-
+  </div>
 </div>

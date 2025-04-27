@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { first } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register-user',
@@ -31,22 +32,34 @@ export class RegisterUserComponent implements OnInit {
       email: ['', [Validators.required]],
       phoneNumber: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(8),
-      Validators.maxLength(12)]],
+      Validators.maxLength(8)]],
       createdAt: [Date.now()]
     });
 
   }
 
   onSubmit() {
-    console.log(this.registerForm.value)
     this.userService.save(this.registerForm.value)
-    .pipe(first())
-    .subscribe({
-      next: () => {
-        this.router.navigate(['../home'], { relativeTo: this.route });
-      } 
-  });
-}
-
-
+      .pipe(first())
+      .subscribe({
+        next: (user) => {
+          Swal.fire({
+            title: 'Success!',
+            text: 'Your registration was successful.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          }).then(() => {
+            this.router.navigate(['../profile', user.id], { relativeTo: this.route });
+          });
+        },
+        error: (error) => {
+          Swal.fire({
+            title: 'Error!',
+            text: 'There was a problem with your registration.',
+            icon: 'error',
+            confirmButtonText: 'Try Again'
+          });
+        }
+    });
+  }
 }
