@@ -1,5 +1,9 @@
 .example-card {
-    max-width: 400px;
     justify-content: center;
     justify-items: center;
   }
+
+.mat-card {
+    border-radius: 10px;
+    width: 350px;
+}

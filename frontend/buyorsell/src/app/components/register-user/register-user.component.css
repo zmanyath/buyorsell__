@@ -1,16 +1,29 @@
 .container {
   display: flex;
   height: 100vh;
+  padding: 15px;
 }
+
 
 .left-panel {
   flex: 1;
-  background: linear-gradient(to bottom, #6a00f4, #9c27b0);
+  background:#1e1e2d;
   position: relative;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* border-radius: 20px; */
+  background-color: #1e1e2d;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px; /* space between the fields */
+}
+
+.form-row .full-width {
+  flex: 1; /* make both fields grow equally */
 }
 
 .background-image {
@@ -18,6 +31,7 @@
   height: 100%;
   object-fit: cover;
   opacity: 0.5;
+  border-radius: 20px;
 }
 
 .overlay-text {
@@ -54,20 +68,4 @@ mat-form-field {
 .or-divider {
   text-align: center;
   margin: 20px 0;
-}
-
-.social-buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.google-button, .apple-button {
-  width: 48%;
-  background-color: white;
-  color: black;
-}
-
-.google-button img, .apple-button img {
-  width: 20px;
-  margin-right: 8px;
 }

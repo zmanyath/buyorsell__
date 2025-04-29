@@ -23,12 +23,7 @@ export class HomeComponent implements OnInit {
       next: (users: User[]) => {
         this.users = users;
         // Optional: show success alert
-        Swal.fire({
-          title: 'Success!',
-          text: 'Users loaded successfully.',
-          icon: 'success',
-          confirmButtonText: 'OK'
-        });
+       
       },
       error: (error) => {
         // Handle error

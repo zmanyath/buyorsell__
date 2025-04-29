@@ -11,15 +11,17 @@
     <p>Already have an account? <a href="/login">Log in</a></p>
 
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="fill" class="full-width">
-        <mat-label>First Name</mat-label>
-        <input matInput formControlName="firstName" placeholder="First Name">
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Last Name</mat-label>
-        <input matInput formControlName="lastName" placeholder="Last Name">
-      </mat-form-field>
+      <div class="form-row">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" placeholder="First Name">
+        </mat-form-field>
+      
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" placeholder="Last Name">
+        </mat-form-field>
+      </div>
 
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Email</mat-label>

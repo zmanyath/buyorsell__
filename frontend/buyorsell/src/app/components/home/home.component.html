@@ -1,20 +1,27 @@
 ﻿<div *ngIf="users.length > 0; else noUsers">
-    <ul>
-      <li *ngFor="let user of users">
-        <mat-card class="example-card" appearance="outlined">
-          <mat-card-header>
-            <mat-card-header>
-              <mat-card-title>User Details</mat-card-title>
-            </mat-card-header>
-          </mat-card-header>
-          <mat-card-content>
-            <p>{{ user.firstName }} {{ user.lastName }}</p>
-            <p>{{ user.email }}</p>
-            <p>{{ user.phoneNumber }}</p>
-          </mat-card-content>
-        </mat-card>
-      </li>
-    </ul>
+        <mat-grid-list  cols="3" gutterSize="20px" rowHeight="2:1">
+          <mat-grid-tile *ngFor="let user of users">
+            <mat-card class="example-card" appearance="outlined">
+              <mat-card-header>
+                <mat-card-header>
+                  <mat-card-title>User Details</mat-card-title>
+                </mat-card-header>
+              </mat-card-header>
+              <mat-card-content>
+                <p><b>Name and Surname: </b>{{ user.firstName }} {{ user.lastName }}</p>
+                <p><b>Email</b>{{ user.email }}</p>
+                <p>Phone Number: {{ user.phoneNumber }}</p>
+              </mat-card-content>
+              <mat-card-footer class="example-card-footer">
+                <mat-chip-set aria-label="User Details">
+                  <mat-chip>charming</mat-chip>
+                  <mat-chip>graceful</mat-chip>
+                  <mat-chip>sassy</mat-chip>
+                </mat-chip-set>
+              </mat-card-footer>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
   </div>
   <ng-template #noUsers>
     <p>No users found.</p>
