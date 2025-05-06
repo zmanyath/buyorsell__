@@ -42,7 +42,9 @@ GO
 CREATE TABLE [product] (
   [id] int PRIMARY KEY IDENTITY(1, 1),
   [name] nvarchar(255),
+  [description] nvarchar(255),
   [SKU] int UNIQUE,
+  [product_image] varbinary(max) not null,
   [category_id] int,
   [inventory_id] int,
   [price] decimal NOT NULL,

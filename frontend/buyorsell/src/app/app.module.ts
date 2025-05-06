@@ -27,6 +27,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { NewProductsComponent } from './components/new-products/new-products.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { MatButtonModule } from '@angular/material/button';
     UserProfileComponent,
     HomeComponent,
     QuestionComponent,
-    UpdateDialog
+    UpdateDialog,
+    NewProductsComponent
   ],
   imports: [
     RouterModule,

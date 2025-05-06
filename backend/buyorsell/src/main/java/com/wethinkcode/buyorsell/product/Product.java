@@ -30,6 +30,8 @@ public class Product {
     private int id;
     private String name;
     private int SKU;
+    private String product_image;
+    private String description;
     private float price;
     private Date created_at;
     private Date modified_at;
@@ -39,9 +41,11 @@ public class Product {
 		
 	}
 	
-	public Product(String name,int SKU, float price, Date created_at, Date modified_at, Date deleted_at) {
+	public Product(String name,int SKU, String product_image, String description, float price, Date created_at, Date modified_at, Date deleted_at) {
 		this.name = name;
         this.SKU = SKU;
+        this.product_image = product_image;
+        this.description = description;
         this.price = price;
 		this.created_at = created_at;
 		this.modified_at = modified_at;
@@ -79,6 +83,24 @@ public class Product {
     public void setSku(int SKU){
         this.SKU = SKU;
     }
+
+    @Column(name = "product_image", nullable= false)
+    public String getProduct_image() {
+        return product_image;
+    }
+
+    public void setProduct_image(String product_image) {
+        this.product_image = product_image;
+    }
+
+    @Column(name = "description", nullable = false)
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+    
     
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id", referencedColumnName = "id")
@@ -124,8 +146,8 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [id =" + id + ", name =" + name + ", SKU =" + SKU + ", category_id =" + product_category +
-		", inventory_id ="+ product_inventory +", price =" + price + ", created_at =" + created_at + ", modified_at =" + modified_at +  ", deleted_at =" + deleted_at +
+		return "Product [id =" + id + ", name =" + name + ", SKU =" + SKU + ", category_id =" + product_category + ", product_image='" + product_image + 
+		", description =" + description + ", inventory_id ="+ product_inventory +", price =" + price + ", created_at =" + created_at + ", modified_at =" + modified_at +  ", deleted_at =" + deleted_at +
         ",]";
 	}
     

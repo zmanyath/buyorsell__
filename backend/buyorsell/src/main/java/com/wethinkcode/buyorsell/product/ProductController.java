@@ -50,8 +50,8 @@ public class ProductController {
     }
 
     @PostMapping(value = "/product/add-product/")
-    public Product addProduct(@RequestParam String name,@RequestParam int SKU,@RequestParam float price,@RequestParam Date created_at,@RequestParam Date modified_at,@RequestParam Date deleted_at) {
-        Product product = new Product(name,SKU, price, created_at, modified_at, deleted_at);
+    public Product addProduct(@RequestParam String name,@RequestParam int SKU, @RequestParam String product_image,@RequestParam String description,@RequestParam float price,@RequestParam Date created_at,@RequestParam Date modified_at,@RequestParam Date deleted_at) {
+        Product product = new Product(name,SKU, product_image, description, price, created_at, modified_at, deleted_at);
         productService.addProduct(product);
         return product;
     }
